@@ -21,7 +21,10 @@ bcrypt>=4.0.0,<5.1.0         # Explicit version to avoid conflicts
 # SQLite is bundled with Python — no extra package needed
 
 # ── Semantic search ───────────────────────────────────────────────────────────
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
 sentence-transformers>=2.7.0
+transformers>=4.0.0
 faiss-cpu>=1.7.4               # use faiss-gpu if you have a CUDA GPU
 numpy>=1.26.0
 scikit-learn>=1.4.0

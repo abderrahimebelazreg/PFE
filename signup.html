@@ -212,7 +212,11 @@
   <body>
     <div class="card">
       <h1>إنشاء حساب جديد</h1>
+<<<<<<< HEAD
       <p class="sub">سيتم إرسال رمز مكوّن من 7 أرقام إلى بريدك ثم تأكيده لإكمال إنشاء الحساب.</p>
+=======
+      <p class="sub">سيتم إرسال رمز مكوّن من 6 أرقام إلى بريدك ثم تأكيده لإكمال إنشاء الحساب.</p>
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
 
       <form id="signup-form">
         <label for="username">اسم المستخدم</label>
@@ -263,9 +267,14 @@
             name="verification_code"
             type="text"
             inputmode="numeric"
+<<<<<<< HEAD
             maxlength="7"
             placeholder="123456"
             oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+=======
+            maxlength="6"
+            placeholder="123456"
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
           />
           <div class="verify-actions">
             <button type="button" id="verify-btn" class="btn btn-primary">
@@ -279,7 +288,11 @@
 
         <div style="text-align: center; margin-top: 0.7rem">
           <p class="link_signin">لديك حساب بالفعل؟</p>
+<<<<<<< HEAD
           <a href="/" class="link_signin" style="font-weight: 700"
+=======
+          <a href="index.html" class="link_signin" style="font-weight: 700"
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
             >تسجيل الدخول</a
           >
         </div>
@@ -342,7 +355,11 @@
           }
           pendingEmail = payload.email;
           verifyBox.classList.add("active");
+<<<<<<< HEAD
           setStatus("تم إرسال الرمز إلى بريدك الإلكتروني. أدخِل 7 أرقام لإكمال التسجيل.", "ok");
+=======
+          setStatus("تم إرسال الرمز إلى بريدك الإلكتروني. أدخِل 6 أرقام لإكمال التسجيل.", "ok");
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
           document.getElementById("verification-code").focus();
         } catch (error) {
           setStatus(explainNetworkError(error), "error");
@@ -353,14 +370,23 @@
       }
 
       async function verifyCode() {
+<<<<<<< HEAD
         // Remove ALL whitespace the email client may add around the code
         const cleanCode = document.getElementById("verification-code").value.replace(/\s/g, "");
+=======
+        const code = document.getElementById("verification-code").value.trim();
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
         if (!pendingEmail) {
           setStatus("أرسل رمز التحقق أولاً.", "error");
           return;
         }
+<<<<<<< HEAD
         if (!/^\d{7}$/.test(cleanCode)) {
           setStatus("أدخل رمزاً صحيحاً من 7 أرقام.", "error");
+=======
+        if (!/^\d{6}$/.test(code)) {
+          setStatus("أدخل رمزاً صحيحاً من 6 أرقام.", "error");
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
           return;
         }
 
@@ -370,7 +396,11 @@
           const response = await fetch(`${API}/auth/verify-signup`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
+<<<<<<< HEAD
             body: JSON.stringify({ email: pendingEmail, code: cleanCode }),
+=======
+            body: JSON.stringify({ email: pendingEmail, code }),
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
           });
           const data = await response.json().catch(() => ({}));
           if (!response.ok) {
@@ -378,7 +408,11 @@
           }
           setStatus("تم إنشاء الحساب بنجاح. سيتم تحويلك إلى صفحة تسجيل الدخول.", "ok");
           setTimeout(() => {
+<<<<<<< HEAD
             window.location.href = "/";
+=======
+            window.location.href = "index.html";
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
           }, 1200);
         } catch (error) {
           setStatus(explainNetworkError(error), "error");
@@ -408,4 +442,8 @@
         });
     </script>
   </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 1cd733382d00f94215a1e37cca823ef69b98938d
