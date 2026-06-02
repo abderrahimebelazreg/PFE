@@ -1,0 +1,2 @@
+C:\Users\Admin\Desktop\Everythig\Bibio\server.py:3: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
